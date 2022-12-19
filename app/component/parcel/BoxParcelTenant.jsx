@@ -25,7 +25,7 @@ const BoxParcelTenant = ({ item, width, user }) => {
 
   const onConfirmParcel = () => {
     axios
-    .post(`${baseUrl}/updateParcel`, {
+    .post(`${baseUrl}/parcel-service/updateParcel`, {
         _id: item.item._id,
         name: name,
         room_number : room_number,

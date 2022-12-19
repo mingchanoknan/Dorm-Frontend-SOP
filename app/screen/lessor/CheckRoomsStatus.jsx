@@ -63,7 +63,7 @@ const CheckRoomsStatus = ({ route, navigation }) => {
     useCallback(() => {
       //console.log("Hello CheckroomStatus");
       axios
-        .get(`${baseUrl}/rent`)
+        .get(`${baseUrl}/rent-service/rent`)
         .then((response) => {
           setUser(response.data);
           setAll(response.data);

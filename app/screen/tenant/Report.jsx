@@ -59,7 +59,7 @@ const Report = () => {
 
   useEffect(() => {
     const getReport = async () => {
-      const reports = await axios.get(`${baseUrl}/report/getall/`)
+      const reports = await axios.get(`${baseUrl}/report-service/report/getall/`)
       console.log(reports.data)
       let sortDate = reports.data
       sortDate.sort((a, b) => {
@@ -83,7 +83,7 @@ const Report = () => {
   
   useEffect(() => {
     const queryByStatus = async() => {
-      const response = await axios.get(`${baseUrl}/report/status/`, { params: { status: selectStatus } })
+      const response = await axios.get(`${baseUrl}/report-service/report/status/`, { params: { status: selectStatus } })
       
       let sortDate = response.data
       sortDate.sort((a, b) => {
@@ -155,7 +155,7 @@ const Report = () => {
     };
     try {
       const re = await axios.post(
-        `${baseUrl}/file/upload`,
+        `${baseUrl}/file-service/file/upload`,
         formData,
         config
       );
@@ -176,7 +176,7 @@ const Report = () => {
     createReport.image = imageUrl
     createReport.date = date
     
-    const res = await axios.post(`${baseUrl}/report/add`, createReport)
+    const res = await axios.post(`${baseUrl}/report-service/report/add`, createReport)
     setLoading(false)
     Alert.alert(res.data, undefined, [
       {
@@ -187,7 +187,7 @@ const Report = () => {
       },
     ])
     const getReport = async() => {
-      const reports = await axios.get(`${baseUrl}/report/getall/`)
+      const reports = await axios.get(`${baseUrl}/report-service/report/getall/`)
       console.log(reports.data)
       let sortDate = reports.data
       sortDate.sort((a, b) => {

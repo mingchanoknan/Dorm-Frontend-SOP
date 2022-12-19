@@ -41,7 +41,7 @@ const ReportCard = (props) => {
     const newcomment = new comment(commentInput);
     item.comments.push(newcomment);
     console.log(item.comments)
-    const res = await axios.put(`${baseUrl}/report/update/`, item);
+    const res = await axios.put(`${baseUrl}/report-service/report/update/`, item);
     setLoading(false)
     console.log( item.comments)
   };

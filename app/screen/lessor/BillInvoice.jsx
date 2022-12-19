@@ -52,12 +52,12 @@ const BillInvoice = ({ route, navigation }, props) => {
   const [electricity, setElectricity] = useState(null);
 
   useEffect(() => {
-    const url = `${baseUrl}/getInvoiceNum/${categoryTitle}`;
-    const urlUser = `${baseUrl}/getUserNum/${categoryTitle}`;
-    const urlRoomInvoice = `${baseUrl}/getInvoice/${categoryTitle}/${month}/${year}`;
-    const urlRentPrice = `${baseUrl}/getRoomNum/${categoryTitle}`;
-    const urlWaterMeter =`${baseUrl}/meter/getMeterInvoice/${categoryTitle}/water/${month} ${year}`;
-    const urlElecMeter =`${baseUrl}/meter/getMeterInvoice/${categoryTitle}/electricity/${month} ${year}`;
+    const url = `${baseUrl}/invoice-service/getInvoiceNum/${categoryTitle}`;
+    const urlUser = `${baseUrl}/user-service/getUserNum/${categoryTitle}`;
+    const urlRoomInvoice = `${baseUrl}/invoice-service/getInvoice/${categoryTitle}/${month}/${year}`;
+    const urlRentPrice = `${baseUrl}/rent-service/getRoomNum/${categoryTitle}`;
+    const urlWaterMeter =`${baseUrl}/meter-service/meter/getMeterInvoice/${categoryTitle}/water/${month} ${year}`;
+    const urlElecMeter =`${baseUrl}/meter-service/meter/getMeterInvoice/${categoryTitle}/electricity/${month} ${year}`;
 
     const fetchUsers = async () => {
       try {

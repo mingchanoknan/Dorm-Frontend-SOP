@@ -79,7 +79,7 @@ const Register = ({ route, navigation }) => {
     record.role = role;
 
     console.log(record);
-    const res = await axios.post(`${baseUrl}/addUser`, record);
+    const res = await axios.post(`${baseUrl}/user-service/addUser`, record);
     if (res.data === false) {
       Alert.alert("username นี้ถูกใช้ไปแล้ว", undefined, [
         {

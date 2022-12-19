@@ -39,7 +39,7 @@ const ReserveRoom = ({ route, navigation }) => {
 
   const onReserveFormHandler = async (event) => {
     try {
-      const response = await axios.post(`${baseUrl}/addReserve`, {
+      const response = await axios.post(`${baseUrl}/reserve-service/addReserve`, {
         room_number,
         first_name,
         last_name,
@@ -50,7 +50,7 @@ const ReserveRoom = ({ route, navigation }) => {
       });
 
       const update = await axios.put(
-        `${baseUrl}/updateStatus/${room_number}/${status}`
+        `${baseUrl}/rent-service/updateStatus/${room_number}/${status}`
       );
 
       

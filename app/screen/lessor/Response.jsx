@@ -22,7 +22,7 @@ const Response = () => {
     console.log(user)
     setLoading(true);
     const getReport = async() => {
-      const reports = await axios.get(`${baseUrl}/report/getall/`)
+      const reports = await axios.get(`${baseUrl}/report-service/report/getall/`)
       let sortDate = reports.data
       console.log(sortDate)
       sortDate.sort((a, b) => {
@@ -48,7 +48,7 @@ const Response = () => {
   useEffect(() => {
     const queryByStatus = async () => {
       setLoading(true);
-      const response = await axios.get(`${baseUrl}/report/status/`, { params: { status: selectStatus } })
+      const response = await axios.get(`${baseUrl}/report-service/report/status/`, { params: { status: selectStatus } })
       
       let sortDate = response.data
       console.log(sortDate)
@@ -75,7 +75,7 @@ const Response = () => {
     }
   }, [selectStatus])
   const getallReport = async() => {
-    const reports = await axios.get(`${baseUrl}/report/getall/`)
+    const reports = await axios.get(`${baseUrl}/report-service/report/getall/`)
     let sortDate = reports.data
     sortDate.sort((a, b) => {
       function convertDate(text) {
@@ -96,7 +96,7 @@ const Response = () => {
     setLoading(true);
     
   rep.status =true
-    const res = await axios.put(`${baseUrl}/report/update/`,rep);
+    const res = await axios.put(`${baseUrl}/report-service/report/update/`,rep);
     setLoading(false);
   }
   return (

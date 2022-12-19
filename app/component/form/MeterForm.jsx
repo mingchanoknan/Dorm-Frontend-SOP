@@ -64,7 +64,7 @@ const MeterForm = (props) => {
       record.consumption = consumptionElec
       record.sum = record.used_unit * record.consumption
     }
-    const res = await axios.post(`${baseUrl}/meter/add`,record)
+    const res = await axios.post(`${baseUrl}/meter-service/meter/add`,record)
     Alert.alert(res.data, undefined, [
       {
         text: "Yes", onPress: () => {

@@ -73,7 +73,7 @@ const FormInvoice = (props) => {
     }
     try {
       const updateInvoice = await axios.post(
-        `${baseUrl}/addInvoice`, roomInvoice
+        `${baseUrl}/invoice-service/addInvoice`, roomInvoice
       );
 
       if (updateInvoice.status === 200) {

@@ -33,7 +33,7 @@ const Parcel = ({ route, navigation }) => {
   const [parcel, setParcel] = useState(null);
   const [select, setSelect] = useState("myParcel");
   const [room_number, setRoom_number] = useState(user.room_number);
-  const [url, setUrl] = useState(`${baseUrl}/getParcelNum/${room_number}`);
+  const [url, setUrl] = useState(`${baseUrl}/parcel-service/getParcelNum/${room_number}`);
 
   const [countReceived, setCountReceived] = useState(0);
   const [countNotReceived, setCountNotReceived] = useState(0);
@@ -42,13 +42,13 @@ const Parcel = ({ route, navigation }) => {
     useCallback(() => {
       if(select == 'myParcel'){
         setRoom_number(user.room_number)
-        setUrl(`${baseUrl}/getParcelNum/${user.room_number}`)
+        setUrl(`${baseUrl}/parcel-service/getParcelNum/${user.room_number}`)
         // console.log("p")
       }else{
-        setUrl(`${baseUrl}/parcel`)
+        setUrl(`${baseUrl}/parcel-service/parcel`)
         // console.log("Hello")
       }
-      const url1 = `${baseUrl}/getParcelNum/${room_number}`;
+      const url1 = `${baseUrl}/parcel-service/getParcelNum/${room_number}`;
       
       const fetchUsers = async () => {
         try {

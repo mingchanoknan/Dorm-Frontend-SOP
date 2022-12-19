@@ -37,7 +37,7 @@ function User({ userObject, navigation, contract, roomNumber, vehicle }) {
 
   const addCar = async (event) => {
     try {
-      const response = await axios.post(`${baseUrl}/addVehicle`, {
+      const response = await axios.post(`${baseUrl}/vehicle-service/addVehicle`, {
         license_plate,
         color,
         brand,
@@ -93,11 +93,11 @@ function User({ userObject, navigation, contract, roomNumber, vehicle }) {
             text: "ยืนยัน",
             onPress: async (event) => {
               const updateContract = await axios.put(
-                `${baseUrl}/updateStatusContract/${room_number}/${status}`
+                `${baseUrl}/contract-service/updateStatusContract/${room_number}/${status}`
               );
 
               const updateRoom = await axios.put(
-                `${baseUrl}/updateStatus/${room_number}/${statusRoom}`
+                `${baseUrl}/rent-service/updateStatus/${room_number}/${statusRoom}`
               );
 
               let arrayids = [];
@@ -107,12 +107,12 @@ function User({ userObject, navigation, contract, roomNumber, vehicle }) {
 
               if (arrayids.length > 0) {
                 var deleteCar = await axios.delete(
-                  `${baseUrl}/deleteAllVehicle/${arrayids}`
+                  `${baseUrl}/vehicel-service/deleteAllVehicle/${arrayids}`
                 );
               }
 
               const deleteUser = await axios.delete(
-                `${baseUrl}/deleteUser/${userObject._id}`
+                `${baseUrl}/user-service/deleteUser/${userObject._id}`
               );
 
               if (
@@ -146,7 +146,7 @@ function User({ userObject, navigation, contract, roomNumber, vehicle }) {
 
   const deleteVehicle = (item) => {
     axios
-      .post(`${baseUrl}/deleteVehicle`, item)
+      .post(`${baseUrl}/vehicle-service/deleteVehicle`, item)
       .then((response) => {
         console.log("delete vehicle success");
       })
@@ -957,11 +957,11 @@ const UserProfile = ({ route, navigation }) => {
   const [vehicle, setVehicle] = useState("");
 
   useEffect(() => {
-    const url = `${baseUrl}/getUserNum/${categoryTitle}`;
+    const url = `${baseUrl}/user-service/getUserNum/${categoryTitle}`;
 
-    const urlContract = `${baseUrl}/getContractNum/${categoryTitle}`;
+    const urlContract = `${baseUrl}/contract-service/getContractNum/${categoryTitle}`;
 
-    const urlVehicle = `${baseUrl}/getVehicleNum/${categoryTitle}`;
+    const urlVehicle = `${baseUrl}/vehicle-service/getVehicleNum/${categoryTitle}`;
 
     const fetchUsers = async () => {
       try {

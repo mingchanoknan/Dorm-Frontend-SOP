@@ -22,23 +22,23 @@ const CheckPayment = ({ route, navigation }) => {
     const [payment, setPayment] = useState(null);
     const [room_number, setRoom_number] = useState("");
     const [payment_status, setPayment_status] = useState("checking_payment");
-    const [url, setUrl] = useState(`${baseUrl}/getPaymentStatus/${payment_status}`);
+    const [url, setUrl] = useState(`${baseUrl}/payment-service/getPaymentStatus/${payment_status}`);
  
     console.log(select);
     useFocusEffect(
         useCallback(() => {
             if(select === "waitingCheck"){
               setPayment_status("checking_payment")
-              setUrl(`${baseUrl}/getPaymentStatus/${payment_status}`)
+              setUrl(`${baseUrl}/payment-service/getPaymentStatus/${payment_status}`)
                 // console.log(select+"po")
               }else{
                 
                 setPayment_status("checked")
-                setUrl(`${baseUrl}/getPaymentStatus/${payment_status}`)
+                setUrl(`${baseUrl}/payment-service/getPaymentStatus/${payment_status}`)
                 // console.log(select)
               }
               
-         const url1 = `${baseUrl}/getPaymentStatus/${payment_status}`;
+         const url1 = `${baseUrl}/payment-service/getPaymentStatus/${payment_status}`;
           
           const fetchUsers = async () => {
             try {

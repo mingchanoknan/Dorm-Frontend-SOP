@@ -85,7 +85,7 @@ const BillRoomInvoice = (props) => {
   const updateBill = async (event) => {
     try {
       const updateInvoice = await axios.put(
-        `${baseUrl}/updateInvoice`, {
+        `${baseUrl}/invoice-service/updateInvoice`, {
           _id: props.roomInvoice._id,
           month : props.roomInvoice.month,
           year : props.roomInvoice.year,

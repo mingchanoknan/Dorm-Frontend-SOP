@@ -47,7 +47,7 @@ const MainTenant = ({ route, navigation }) => {
   };
 
   useEffect(() => {
-    const url = `${baseUrl}/news`;
+    const url = `${baseUrl}/news-service/news`;
     const fetchUsers = async () => {
       try {
         const response = await axios.get(url);

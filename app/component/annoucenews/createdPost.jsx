@@ -62,7 +62,7 @@ const CreatedPost = () => {
     };
     try {
       const re = await axios.post(
-        `${baseUrl}/file/upload`,
+        `${baseUrl}/file-service/file/upload`,
         formData,
         config
       );
@@ -74,7 +74,7 @@ const CreatedPost = () => {
         record.created_byId = 1;
         record.url = imageUrl
 
-        const res = await axios.post(`${baseUrl}/addNews`, record);
+        const res = await axios.post(`${baseUrl}/news-service/addNews`, record);
                 Alert.alert(res.data, undefined, [
                   {
                     text: "Yes",
