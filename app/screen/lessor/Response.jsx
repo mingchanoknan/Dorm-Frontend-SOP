@@ -37,7 +37,6 @@ const Response = () => {
         return convertDate(b.date) - convertDate(a.date)
       }
       );
-      console.log(reports.data)
       setLoading(false);
       setAllReport(sortDate)
       setListBySelect(sortDate)
@@ -81,6 +80,7 @@ const Response = () => {
       function convertDate(text) {
         const date = text.replace(",", "")
         const arr = date.split(" ")
+        console.log("arr "+ arr)
         const arrDate = arr[0].split("/")
         const arrTime = arr[1].split(":")
         return new Date(arrDate[2], arrDate[1], arrDate[0], arrTime[0], arrTime[1], arrTime[2])

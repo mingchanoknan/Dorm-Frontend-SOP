@@ -62,12 +62,16 @@ const BillInvoice = ({ route, navigation }, props) => {
     const fetchUsers = async () => {
       try {
         const response = await axios.get(url);
-        const resUser = await axios.get(urlUser);
-        const resInvoice = await axios.get(urlRoomInvoice);
-        const resRentPrice = await axios.get(urlRentPrice);
-        const resWater = await axios.get(urlWaterMeter);
-        const resElectric = await axios.get(urlElecMeter);
 
+        const resUser = await axios.get(urlUser);
+
+        const resInvoice = await axios.get(urlRoomInvoice);
+
+        const resRentPrice = await axios.get(urlRentPrice);
+
+        const resWater = await axios.get(urlWaterMeter);
+
+        const resElectric = await axios.get(urlElecMeter);
         if (response.status === 200 && resUser.status === 200 && resInvoice.status === 200 && resRentPrice.status === 200 && resWater.status === 200 && resElectric.status === 200) {
           
               setInvoice(response.data);
@@ -77,11 +81,7 @@ const BillInvoice = ({ route, navigation }, props) => {
               setElectricity(resElectric.data);
               setWater(resWater.data);
 
-              console.log(resRentPrice.data);
-              console.log(resElectric.data);
-              console.log(resWater.data);
-
-          if(resElectric.data === "" || resWater.data === ""){
+          if(resElectric.data._Id === "" || resWater.data._Id === ""){
             
                  Alert.alert(  
                   'กรุณากรอกมิเตอร์ของรอบบิล',  

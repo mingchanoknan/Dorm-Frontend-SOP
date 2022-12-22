@@ -32,6 +32,7 @@ import FooterBackground from "../../component/background/FooterBackground";
 import {baseUrl} from "@env"
 import axios from "axios";
 import AddReport from "../../component/card/AddReport";
+import { useFocusEffect } from "@react-navigation/native";
 let h = Dimensions.get('window').height
 let height;
 if (h > 1000) {
