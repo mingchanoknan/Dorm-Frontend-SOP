@@ -28,11 +28,11 @@ const  Login = (props) => {
   const [password, setPassword] = useState(null);
 
   const comFirmLogin = async () => {
-    console.log(baseUrl + "/login")
+    // console.log(baseUrl + "/user-service/login")
     setUsername(username);
     setPassword(password);
     try {
-      const result = await axios.get(baseUrl + "/login", {
+      const result = await axios.get(baseUrl + "/user-service/login", {
         params: {
           username,
           password,

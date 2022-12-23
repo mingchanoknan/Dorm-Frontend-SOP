@@ -23,21 +23,6 @@ import { useSelector, useDispatch } from "react-redux";
 
 import axios from "axios";
 
-// const baseUrl = 'https://reqres.in'
-
-// axios.get(`${baseUrl}/api/users`).then((response) => {
-//   console.log(response.data);
-// })
-
-// const baseUrl ='http://10.111.3.135:8080';
-
-// axios.get(`${baseUrl}/invoices`)
-// .then((response) => {
-//   console.log(response.data[0].room_number);
-// })
-// .catch(
-//   (error) => console.log('error')
-// )
 
 import { EvaIconsPack } from "@ui-kitten/eva-icons";
 import userReducer from "./app/storeRedux/reducer/userReducer";

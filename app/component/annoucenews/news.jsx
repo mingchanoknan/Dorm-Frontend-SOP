@@ -76,7 +76,7 @@ const news = ({ item, width, numberOfLines, canEdit, onSelect, navigation}) => {
     record.created_date = created_date;
     record.created_byId = created_byId;
 
-    const res = await axios.post(`${baseUrl}/updateNews`, record);
+    const res = await axios.post(`${baseUrl}/news-service/updateNews`, record);
     Alert.alert("แก้ไขสำเร็จ", undefined, [
       {
         text: "ปิด",
@@ -114,7 +114,7 @@ const news = ({ item, width, numberOfLines, canEdit, onSelect, navigation}) => {
 
     console.log(record);
 
-    const res = await axios.post(`${baseUrl}/deleteNews`, record);
+    const res = await axios.post(`${baseUrl}/news-service/deleteNews`, record);
     Alert.alert("ลบสำเร็จ", undefined, [
       {
         text: "ปิด",

@@ -25,7 +25,7 @@ const CheckRoomDetail = ({ route, navigation }) => {
     useCallback(() => {
       const getInfo = async () => {
         await axios
-        .get(`${baseUrl}/room/getbyid`, {
+        .get(`${baseUrl}/room-service/room/getbyid`, {
           params: {
             id : id
         } })
@@ -61,7 +61,7 @@ const CheckRoomDetail = ({ route, navigation }) => {
     console.log(data)
     if (data != undefined) {
       await axios
-        .get(`${baseUrl}/countRentByType/${data.typeName}/${"available"}`, {
+        .get(`${baseUrl}/rent-service/countRentByType/${data.typeName}/${"available"}`, {
           params: {
             id : id
         } })

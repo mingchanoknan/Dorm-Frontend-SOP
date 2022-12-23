@@ -54,7 +54,7 @@ const AddParcel = ({ route, navigation }) => {
             {
               text: "OK",
               onPress: async (event) => {
-                const response = await axios.post(`${baseUrl}/addParcel`, {
+                const response = await axios.post(`${baseUrl}/parcel-service/addParcel`, {
                   name,
                   room_number,
                   sent_date,

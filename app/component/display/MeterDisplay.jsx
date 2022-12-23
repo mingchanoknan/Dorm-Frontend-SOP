@@ -40,7 +40,7 @@ const MeterDisplay = (props) => {
   useEffect(() => {
     setLoading(true)
     const getInfoMeter = async () => {
-      let info = await axios.get(`${baseUrl}/meter/getbytype/${props.type}`);
+      let info = await axios.get(`${baseUrl}/meter-service/meter/getbytype/${props.type}`);
       // console.log(info.data)
       setInfoBySelect(info.data)
       setLists(info.data)
@@ -53,12 +53,12 @@ const MeterDisplay = (props) => {
     setLoading(true)
     const changeList = async() => {
       if (listBy == "All Meter Data") {
-        const res = await axios.get(`${baseUrl}/meter/getbytype/${props.type}`);
+        const res = await axios.get(`${baseUrl}/meter-service/meter/getbytype/${props.type}`);
         setLists(res.data)
         setInfoBySelect(res.data)
       }
       else {
-        const res = await axios.get(`${baseUrl}/meter/getbymonthandyear/${listBy}/${props.type}`)
+        const res = await axios.get(`${baseUrl}/meter-service/meter/getbymonthandyear/${listBy}/${props.type}`)
         setInfoBySelect(res.data)
         setLists(res.data)
       }

@@ -19,11 +19,11 @@ function User({ roomNumber, userObject, navigation }) {
   const [cancleStatus, setCancleStatus] = useState("cancle");
   const  onCancleFormHandler = async (event) => {
     try {
-      const cancle = await axios.put(`${baseUrl}/updateStatusReserve/${userObject._id}/${cancleStatus}`);
+      const cancle = await axios.put(`${baseUrl}/reserve-service/updateStatusReserve/${userObject._id}/${cancleStatus}`);
         // console.log(cancleReserve);
         // console.log(status);
         // console.log(userObject._id);
-        const update =await axios.put(`${baseUrl}/updateStatus/${roomNumber}/${status}`);
+        const update =await axios.put(`${baseUrl}/reserve-service/updateStatus/${roomNumber}/${status}`);
         //console.log(reserve_date.toISOString().slice(0, 9));
 
       if (update.status === 200 && cancle.status === 200) {
@@ -159,7 +159,7 @@ const DetailReserve = ({ route, navigation }) => {
   const [reserve, setReserve] = useState(null);
 
   useEffect(() => {
-    const url = `${baseUrl}/getReserveNum/${categoryTitle}`;
+    const url = `${baseUrl}/reserve-service/getReserveNum/${categoryTitle}`;
     console.log("DetailReserve");
     console.log(url);
     const fetchUsers = async () => {

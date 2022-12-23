@@ -190,7 +190,7 @@ export default function RoomForm({ navigation, route }) {
         }
         r.room_number = r.build.concat(r.floor, item);
        await axios
-      .post(`${baseUrl}/addRent`, r)
+      .post(`${baseUrl}/rent-service/addRent`, r)
       .then((response) => {
         console.log(response)
       })
@@ -212,7 +212,7 @@ export default function RoomForm({ navigation, route }) {
         }
        r.room_number = r.build.concat(r.floor, item);
         await axios
-      .post(`${baseUrl}/addRent`, r)
+      .post(`${baseUrl}/rent-service/addRent`, r)
       .then((response) => {
         console.log(response.data)
       })
@@ -244,7 +244,7 @@ export default function RoomForm({ navigation, route }) {
     };
     try {
       const re = await axios.post(
-        `${baseUrl}/file/upload`,
+        `${baseUrl}/file-service/file/upload`,
         formData,
         config
       );
@@ -269,7 +269,7 @@ export default function RoomForm({ navigation, route }) {
     
     
     axios
-      .post(`${baseUrl}/room/add`, all)
+      .post(`${baseUrl}/room-service/room/add`, all)
       .then((response) => {
         setVisible(false)
         Alert.alert(response.data, undefined, [

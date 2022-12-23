@@ -42,7 +42,7 @@ const Invoices = ({ route, navigation }) => {
   
   
   useEffect(() => {
-    const url = `${baseUrl}/getListInvoiceNum/${myUser.room_number}`;
+    const url = `${baseUrl}/invoice-service/getListInvoiceNum/${myUser.room_number}`;
     const fetchUsers = async () => {
       try {
         const response = await axios.get(url);

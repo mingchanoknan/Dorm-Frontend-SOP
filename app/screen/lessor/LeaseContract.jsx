@@ -27,7 +27,7 @@ const LeaseContract = ({ route, navigation }) => {
   const [rentStatus, setRentStatus] = useState("rent");
 
   useEffect(() => {
-    const url = `${baseUrl}/getRoomNum/${categoryTitle}`;
+    const url = `${baseUrl}/rent-service/getRoomNum/${categoryTitle}`;
 
     const fetchUsers = async () => {
       try {
@@ -66,7 +66,7 @@ const LeaseContract = ({ route, navigation }) => {
 
   const onContractFormHandler = async (event) => {
     try {
-      const response = await axios.post(`${baseUrl}/addContract`, {
+      const response = await axios.post(`${baseUrl}/contract-service/addContract`, {
         first_name,
         last_name,
         address,
@@ -81,10 +81,10 @@ const LeaseContract = ({ route, navigation }) => {
       });
 
       const update = await axios.put(
-        `${baseUrl}/updateStatus/${categoryTitle}/${statusUpdate}`
+        `${baseUrl}/rent-service/updateStatus/${categoryTitle}/${statusUpdate}`
       );
 
-      const cancle = await axios.put(`${baseUrl}/updateStatusReserve/${categoryId}/${rentStatus}`);
+      const cancle = await axios.put(`${baseUrl}/reserve-service/updateStatusReserve/${categoryId}/${rentStatus}`);
       
       if (update.status === 200 && response.status === 200 && cancle.status === 200) {
         alert("ทำสัญญาสำเร็จ");

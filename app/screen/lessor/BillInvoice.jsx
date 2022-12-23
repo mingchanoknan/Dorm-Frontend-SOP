@@ -52,22 +52,26 @@ const BillInvoice = ({ route, navigation }, props) => {
   const [electricity, setElectricity] = useState(null);
 
   useEffect(() => {
-    const url = `${baseUrl}/getInvoiceNum/${categoryTitle}`;
-    const urlUser = `${baseUrl}/getUserNum/${categoryTitle}`;
-    const urlRoomInvoice = `${baseUrl}/getInvoice/${categoryTitle}/${month}/${year}`;
-    const urlRentPrice = `${baseUrl}/getRoomNum/${categoryTitle}`;
-    const urlWaterMeter =`${baseUrl}/meter/getMeterInvoice/${categoryTitle}/water/${month} ${year}`;
-    const urlElecMeter =`${baseUrl}/meter/getMeterInvoice/${categoryTitle}/electricity/${month} ${year}`;
+    const url = `${baseUrl}/invoice-service/getInvoiceNum/${categoryTitle}`;
+    const urlUser = `${baseUrl}/user-service/getUserNum/${categoryTitle}`;
+    const urlRoomInvoice = `${baseUrl}/invoice-service/getInvoice/${categoryTitle}/${month}/${year}`;
+    const urlRentPrice = `${baseUrl}/rent-service/getRoomNum/${categoryTitle}`;
+    const urlWaterMeter =`${baseUrl}/meter-service/meter/getMeterInvoice/${categoryTitle}/water/${month} ${year}`;
+    const urlElecMeter =`${baseUrl}/meter-service/meter/getMeterInvoice/${categoryTitle}/electricity/${month} ${year}`;
 
     const fetchUsers = async () => {
       try {
         const response = await axios.get(url);
-        const resUser = await axios.get(urlUser);
-        const resInvoice = await axios.get(urlRoomInvoice);
-        const resRentPrice = await axios.get(urlRentPrice);
-        const resWater = await axios.get(urlWaterMeter);
-        const resElectric = await axios.get(urlElecMeter);
 
+        const resUser = await axios.get(urlUser);
+
+        const resInvoice = await axios.get(urlRoomInvoice);
+
+        const resRentPrice = await axios.get(urlRentPrice);
+
+        const resWater = await axios.get(urlWaterMeter);
+
+        const resElectric = await axios.get(urlElecMeter);
         if (response.status === 200 && resUser.status === 200 && resInvoice.status === 200 && resRentPrice.status === 200 && resWater.status === 200 && resElectric.status === 200) {
           
               setInvoice(response.data);
@@ -77,11 +81,7 @@ const BillInvoice = ({ route, navigation }, props) => {
               setElectricity(resElectric.data);
               setWater(resWater.data);
 
-              console.log(resRentPrice.data);
-              console.log(resElectric.data);
-              console.log(resWater.data);
-
-          if(resElectric.data === "" || resWater.data === ""){
+          if(resElectric.data._Id === "" || resWater.data._Id === ""){
             
                  Alert.alert(  
                   'กรุณากรอกมิเตอร์ของรอบบิล',  

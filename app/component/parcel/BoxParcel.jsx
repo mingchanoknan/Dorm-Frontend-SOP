@@ -27,7 +27,7 @@ const BoxParcel = ({ item, width }) => {
 
   const Edited = async (event) => {
     try {
-      const response = await axios.post(`${baseUrl}/updateParcel`, {
+      const response = await axios.post(`${baseUrl}/parcel-service/updateParcel`, {
         _id : item.item._id,
         name: name,
         room_number: room_number.toUpperCase(),
@@ -67,7 +67,7 @@ const BoxParcel = ({ item, width }) => {
           {
             text: "OK",
             onPress: async (event) => {
-              const response = await axios.post(`${baseUrl}/deleteParcel`, {
+              const response = await axios.post(`${baseUrl}/parcel-service/deleteParcel`, {
                 _id : item.item._id,
                 name: name,
                 room_number: room_number.toUpperCase(),

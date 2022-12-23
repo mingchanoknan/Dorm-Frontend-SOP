@@ -11,7 +11,7 @@ const AnnouceNews = ({ navigation }) => {
 
   useFocusEffect(
     useCallback(() => {
-      const url = `${baseUrl}/news`;
+      const url = `${baseUrl}/news-service/news`;
 
       const fetchUsers = async () => {
         try {

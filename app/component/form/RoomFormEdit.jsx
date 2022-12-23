@@ -52,7 +52,7 @@ const RoomFormEdit = ({ navigation, route, data }) => {
     try {
       let re = [];
       if (unexistedImage.length > 0) {
-        re = await axios.post(`${baseUrl}/file/upload`, formData, config);
+        re = await axios.post(`${baseUrl}/file-service/file/upload`, formData, config);
       }
         let newArr = existedImage.concat(re.data);
         
@@ -62,7 +62,7 @@ const RoomFormEdit = ({ navigation, route, data }) => {
       );
       console.log(all.image);
       axios
-        .put(`${baseUrl}/room/update`, all)
+        .put(`${baseUrl}/room-service/room/update`, all)
         .then((response) => {
           setVisible(false);
           Alert.alert(response.data, undefined, [

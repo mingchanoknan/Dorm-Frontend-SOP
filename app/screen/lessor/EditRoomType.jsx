@@ -7,7 +7,7 @@ const EditRoomType = ({ route, navigation }) => {
     const { id } = route.params;
     useEffect(() => {
         axios
-        .get(`${baseUrl}/room/getbyid`, {
+        .get(`${baseUrl}/room-service/room/getbyid`, {
           params: {
             id : id
         } })

@@ -64,7 +64,7 @@ function User({userObject, navigation, userInfo}) {
         alert("เกินกำหนดชำระบิล คิดค่าปรับเดือนละ 1000 บาท");
 
         try {
-          const response = await axios.put(`${baseUrl}/updateInvoice`, {
+          const response = await axios.put(`${baseUrl}/invoice-service/updateInvoice`, {
           _id: userObject._id,
           month : userObject.month,
           year : userObject.year,
@@ -152,8 +152,8 @@ const InvioveDetail = ({ route, navigation }) => {
 
   useFocusEffect(
     useCallback(() => {
-    const url = `${baseUrl}/getInvoice/${categoryTitle}/${month}/${year}`;
-    const urlUser = `${baseUrl}/getUserNum/${categoryTitle}`;
+    const url = `${baseUrl}/invoice-service/getInvoice/${categoryTitle}/${month}/${year}`;
+    const urlUser = `${baseUrl}/user-service/getUserNum/${categoryTitle}`;
 
     console.log("test");
     const fetchUsers = async () => {

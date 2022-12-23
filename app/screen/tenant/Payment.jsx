@@ -98,10 +98,10 @@ if (h > 1000) {
           },
         };
         try {
-          const re = await axios.post(`${baseUrl}/file/upload`, formData, config);
+          const re = await axios.post(`${baseUrl}/file-service/file/upload`, formData, config);
           setUrlImg(re.data)
           console.log(re.data);
-          const res = await axios.post(`${baseUrl}/addPayment`, {
+          const res = await axios.post(`${baseUrl}/payment-service/addPayment`, {
             payment_date : date,
             payment_time : time,
             payment_note : note,
@@ -120,7 +120,7 @@ if (h > 1000) {
         }
 
     try {
-      const response = await axios.put(`${baseUrl}/updateStatusInvoice/${id}/${statusPay}`);
+      const response = await axios.put(`${baseUrl}/invoive-service/updateStatusInvoice/${id}/${statusPay}`);
     } catch (err) {
       console.log(err);
     }

@@ -34,7 +34,7 @@ const PaymentDatail = ({ route, navigation }) => {
   const [roomNum, setRoomNum] = useState("");
   const [payment_status, setPayment_status] = useState("checking_payment");
   const [url, setUrl] = useState(
-    `${baseUrl}/getPaymentStatus/${payment_status}`
+    `${baseUrl}/payment-service/getPaymentStatus/${payment_status}`
   );
   const [invoice, setInvoice] = useState(null);
   const [statusApproved, setStatusApproved] = useState("APPROVED_BILL");
@@ -60,7 +60,7 @@ const PaymentDatail = ({ route, navigation }) => {
   };
 
   useEffect(() => {
-    const url = `${baseUrl}/getInvoiceById/${idInvoice}`;
+    const url = `${baseUrl}/invoice-service/getInvoiceById/${idInvoice}`;
     const fetchUsers = async () => {
       try {
         const response = await axios.get(url);
@@ -88,10 +88,10 @@ const PaymentDatail = ({ route, navigation }) => {
             text: "OK",
             onPress: async (event) => {
               const response = await axios.put(
-                `${baseUrl}/updateStatusInvoice/${idInvoice}/${statusApproved}`
+                `${baseUrl}/invoice-service/updateStatusInvoice/${idInvoice}/${statusApproved}`
               );
 
-              const update = await axios.post(`${baseUrl}/updatePayment`, {
+              const update = await axios.post(`${baseUrl}/payment-service/updatePayment`, {
                 _id: id,
                 amount: amount,
                 payment_date: payment_date,
@@ -134,7 +134,7 @@ const PaymentDatail = ({ route, navigation }) => {
       //   `${baseUrl}/updateStatusInvoice/${idInvoice}/${statusCancle}`
       // );
       const response = await axios.put(
-        `${baseUrl}/updateInvoice`, {
+        `${baseUrl}/invoice-service/updateInvoice`, {
         _id: invoice._id,
         month: invoice.month,
         year: invoice.year,
@@ -153,7 +153,7 @@ const PaymentDatail = ({ route, navigation }) => {
       }
       );
 
-      const update = await axios.post(`${baseUrl}/updatePayment`, {
+      const update = await axios.post(`${baseUrl}/payment-service/updatePayment`, {
         _id: id,
         amount: amount,
         payment_date: payment_date,
@@ -187,7 +187,7 @@ const PaymentDatail = ({ route, navigation }) => {
             text: "OK",
             onPress: async (event) => {
               const response = await axios.put(
-                `${baseUrl}/updateStatusInvoice/${idInvoice}/${statusApproved}`
+                `${baseUrl}/invoice-service/updateStatusInvoice/${idInvoice}/${statusApproved}`
               );
 
               if (response.status === 200) {

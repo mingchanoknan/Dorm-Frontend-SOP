@@ -17,7 +17,7 @@ const CheckRoomPrice = ({ route, navigation }) => {
   useFocusEffect(
     useCallback(() => {
       axios
-        .get(`${baseUrl}/room/getall`)
+        .get(`${baseUrl}/room-service/room/getall`)
           .then((response) => {
             // console.log(response.data)
           setROOMS(response.data);

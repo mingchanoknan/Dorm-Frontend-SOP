@@ -37,9 +37,9 @@ const ManageParcel = ({ route, navigation }) => {
       const received = "received";
       const not_received = "not_received";
 
-      const url = `${baseUrl}/parcel`;
-      const urlCountReceived = `${baseUrl}/countParcel/${received}`;
-      const urlCountNotReceived = `${baseUrl}/countParcel/${not_received}`;
+      const url = `${baseUrl}/parcel-service/parcel`;
+      const urlCountReceived = `${baseUrl}/parcel-service/countParcel/${received}`;
+      const urlCountNotReceived = `${baseUrl}/parcel-service/countParcel/${not_received}`;
       const fetchUsers = async () => {
         try {
           const response = await axios.get(url);

@@ -27,7 +27,7 @@ const MangeAccount = () => {
 
   useFocusEffect(
     useCallback(() => {
-      const url = `${baseUrl}/news`;
+      const url = `${baseUrl}/news-service/news`;
 
       const fetchUsers = async () => {
         try {
@@ -59,7 +59,7 @@ const MangeAccount = () => {
   };
 
   const submit = async () => {
-    const res = await axios.get(`${baseUrl}/getUserById/${id}`);
+    const res = await axios.get(`${baseUrl}/user-service/getUserById/${id}`);
     let record = { ...res.data };
     record.first_name = firstname;
     record.last_name = lastname;
@@ -68,7 +68,7 @@ const MangeAccount = () => {
     record.tel_no2 = tel2;
 
     console.log("--------", record);
-    const res2 = await axios.post(`${baseUrl}/updateUser`, record);
+    const res2 = await axios.post(`${baseUrl}/user-service/updateUser`, record);
     console.log(res2.data);
     if (res2.status === 200) {
       Alert.alert("แก้ไขสำเร็จ", undefined, [

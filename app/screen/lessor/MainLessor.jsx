@@ -65,7 +65,7 @@ const MainLessor = ({ route, navigation }) => {
 
   useEffect(() => {
     axios
-      .get(`${baseUrl}/countUser`)
+      .get(`${baseUrl}/user-service/countUser`)
       .then((response) => {
         setCountUser(response.data);
       })
@@ -75,7 +75,7 @@ const MainLessor = ({ route, navigation }) => {
   useEffect(() => {
     axios
 
-      .get(`${baseUrl}/countRoom/${room_status}`)
+      .get(`${baseUrl}/rent-service/countRoom/${room_status}`)
       .then((response) => {
         setCountRoom(response.data);
       })
@@ -86,7 +86,7 @@ const MainLessor = ({ route, navigation }) => {
   useEffect(() => {
     axios
       .get(
-        `${baseUrl}/countPayInvoice/${currentMonth}/${currentYear}/${status}`
+        `${baseUrl}/invoice-service/countPayInvoice/${currentMonth}/${currentYear}/${status}`
       )
       .then((response) => {
         setCountPayInvoice(response.data.toFixed(2));
@@ -96,7 +96,7 @@ const MainLessor = ({ route, navigation }) => {
 
   useEffect(() => {
     axios
-      .get(`${baseUrl}/meter/countPayMeter/${monthandyear}/${typeWater}`)
+      .get(`${baseUrl}/meter-service/meter/countPayMeter/${monthandyear}/${typeWater}`)
       .then((response) => {
         setCountUseWater(response.data.toFixed(2));
       })
@@ -105,7 +105,7 @@ const MainLessor = ({ route, navigation }) => {
 
   useEffect(() => {
     axios
-      .get(`${baseUrl}/meter/countPayMeter/${monthandyear}/${typeElec}`)
+      .get(`${baseUrl}/meter-service/meter/countPayMeter/${monthandyear}/${typeElec}`)
       .then((response) => {
         setCountUseElec(response.data.toFixed(2));
       })

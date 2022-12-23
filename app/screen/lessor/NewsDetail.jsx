@@ -65,7 +65,7 @@ const NewsDetail = ({ route, navigation }) => {
       },
     };
     try {
-      const re = await axios.post(`${baseUrl}/file/upload`, formData, config);
+      const re = await axios.post(`${baseUrl}file-service/file/upload`, formData, config);
       setImageUri(re.data);
     } catch (err) {
       console.log(err);
@@ -105,7 +105,7 @@ const NewsDetail = ({ route, navigation }) => {
     try {
       let re = [];
       if (unexistedImage.length > 0) {
-        re = await axios.post(`${baseUrl}/file/upload`, formData, config);
+        re = await axios.post(`${baseUrl}/file-service/file/upload`, formData, config);
       }
       let newArr = existedImage.concat(re.data);
       newArr = newArr.filter((item) => item != undefined && item != null)
@@ -114,7 +114,7 @@ const NewsDetail = ({ route, navigation }) => {
       record.text = text;
       record.url = newArr
       console.log(record)
-      const res = await axios.post(`${baseUrl}/updateNews`, record);
+      const res = await axios.post(`${baseUrl}/news-service/updateNews`, record);
       Alert.alert("แก้ไขสำเร็จ", undefined, [
         {
           text: "ปิด",
@@ -140,7 +140,7 @@ const NewsDetail = ({ route, navigation }) => {
 
     console.log(record);
 
-    const res = await axios.post(`${baseUrl}/deleteNews`, record);
+    const res = await axios.post(`${baseUrl}/news-service/deleteNews`, record);
     Alert.alert("ลบสำเร็จ", undefined, [
       {
         text: "ปิด",
