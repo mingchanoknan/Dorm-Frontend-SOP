@@ -44,6 +44,7 @@ const CreatedPost = () => {
   }, []);
 
   const Created = async () => {
+    let imageUrl;
     let formData = new FormData();
     for (var i = 0; i < image.length; i++) {
       // ImagePicker saves the taken photo to disk and returns a local URI to it
@@ -61,19 +62,25 @@ const CreatedPost = () => {
       },
     };
     try {
-      const re = await axios.post(
-        `${baseUrl}/file-service/file/upload`,
-        formData,
-        config
-      );
-      let imageUrl = re.data;
+      if (image.length != 0) {
+        const re = await axios.post(
+          `${baseUrl}/file-service/file/upload`,
+          formData,
+          config
+        );
+        imageUrl = re.data;
+      }
+      else {
+        imageUrl = []
+      }
+
       let record = new news();
         record.title = title;
         record.text = text;
         record.created_date = created_date;
         record.created_byId = 1;
         record.url = imageUrl
-
+        console.log(record)
         const res = await axios.post(`${baseUrl}/news-service/addNews`, record);
                 Alert.alert(res.data, undefined, [
                   {
